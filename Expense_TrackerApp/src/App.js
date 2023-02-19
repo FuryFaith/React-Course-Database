@@ -1,5 +1,13 @@
 import ExpenseList from "./Components/Expenses/ExpenseList";
+import NewExpense from "./Components/NewExpenses/NewExpense";
+
 function App() {
+  const expenseHandler = (expense) => {
+    const savedexpense = {
+      ...expense,
+    };
+    console.log(savedexpense);
+  };
   const expenses = [
     {
       id: "e1",
@@ -23,9 +31,7 @@ function App() {
   ];
   return (
     <div>
-      <div>
-        <h2>Let's get started!</h2>
-      </div>
+      <NewExpense onSaveexpense={expenseHandler} />
       <ExpenseList items={expenses} />
     </div>
   );
